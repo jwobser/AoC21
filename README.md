@@ -30,6 +30,14 @@ Another fun one! Having multiple bingo boards felt like an obvious use case for 
 ### Part 2
 Borrowed an idea from Day 3, and made a forward list of all the boards that had not won yet. As numbers are drawn and boards win, they get removed from the list. This means checking for winners gets faster towards the end, as fewer and fewer boards are in play.
 
+## Day 5
+### Part 1
+First test to see if it's diagonal, and if it is skip it.
+The just update an array with how many times a line has been drawn over a pixel.
+### Part 2
+Adding the diagonals wasn't too hard.
+
+
 ## Day 6
 ### Part 1
 Vectors! I still want to go back and benchmark my original brute force implementation, which tracked each fish individually, decrementing their counters and appending lanternfish to the vector as they were born. Despite being brute force, I honestly didn't notice how slow it was. I wonder how much slower it would have been in Python for example.
@@ -62,3 +70,11 @@ I also realized that the field could be checked completely independently, so I w
 
 I also used a mutex to control access to the vector listing all the minimum points, as well as an atomic long to keep track of the risk level. 
 ### Part 2
+
+
+## Day 10
+For this one I used some unit testing to make sure the scoring and detection functions were working correctly. It also forced me to do more separation of concerns to make the functions unit-testable.
+### Part 1
+I set this up with a stack to track which chunks have been opened. If an opening character is detected, a new chuck is added to the stack. If not, it is assumed to be a closing character and is compared against the stack. If they do not match, this is a corrupted line.
+### Part 2
+Due to setting up the stack from part 1, this one was pretty straight forward. Just look at all the remaining unclosed chunks and score them.
