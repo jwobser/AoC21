@@ -9,7 +9,7 @@ std::string buf;
 int main(int argc, char** argv){
     (void)argc; // Unused
     (void)argv; // Unused
-    int flashes{0};
+    int temp;
     input.open("input");
     {
         int i{0}, j{0};
@@ -29,12 +29,11 @@ int main(int argc, char** argv){
     input.close();
     printfield();
 
-    for(int runs{0}; runs < 100; ++runs){
-        // printfield();
-        flashes += step();
+    int runs{0};
+    while(temp != 100){
+        temp = step();
+        ++runs;
     }
 
-    std::cout << "Flashes: " << std::dec << flashes << '\n';
-
-    // printfield();
+    std::cout << "Flash sync step: " << runs << '\n';
 }
