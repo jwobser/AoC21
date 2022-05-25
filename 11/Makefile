@@ -1,4 +1,4 @@
-CXXFLAGS = -g --std=c++20
+CXXFLAGS = -g --std=c++20 -Wall -Wextra
 TESTFLAGS = --std=c++20
 #CXX = clang++
 

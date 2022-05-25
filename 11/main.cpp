@@ -7,6 +7,8 @@ std::ifstream input;
 std::string buf;
 
 int main(int argc, char** argv){
+    (void)argc; // Unused
+    (void)argv; // Unused
     int flashes{0};
     input.open("input");
     {

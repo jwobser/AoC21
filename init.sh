@@ -17,6 +17,8 @@ std::ifstream input;
 std::string buf;
 
 int main(int argc, char** argv){
+    (void)argc; // Unused
+    (void)argv; // Unused
     input.open("input");
     input >> buf;
     std::cout << "First line of input:\n";
@@ -37,7 +39,7 @@ TEST_CASE("Check step function", "[Helper]"){
 EOT
 
 cat <<EOT >>Makefile
-CXXFLAGS = -g --std=c++20
+CXXFLAGS = -g --std=c++20 -Wall -Wextra
 TESTFLAGS = --std=c++20
 #CXX = clang++
 
