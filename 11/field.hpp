@@ -50,12 +50,10 @@ int handleflashing(){
             if(i == height) break;
         }
         a = field[i][j];
-        if (a < 10) continue;
-        if(a >= 10 && a < flashflag){
-            ++count;
-            field[i][j] |= flashflag;
-            flashneighbors(i,j);
-        }
+        if (a < 10 || a > flashflag) continue;
+        ++count;
+        field[i][j] |= flashflag;
+        flashneighbors(i,j);
     }
     return count;
 }
@@ -122,4 +120,16 @@ int flashneighbors(int i, int j){
     }
 
     return count;
+}
+
+int step(){
+    int flashes{0};
+    incrementfield();
+    while (handleflashing()) {
+        // handle newly flashed cells until none remain
+    }
+    // accumulate the total number of cells that were flashed
+    flashes += resetflashed();
+    return flashes;
+
 }

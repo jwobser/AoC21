@@ -18,20 +18,18 @@ int main(int argc, char** argv){
             if (inchar == '\n'){
                 ++i;
                 j = 0;
+                continue;
             } 
             field[i][j] = atoi(&inchar);
             ++j;
         }
     }
     input.close();
+    printfield();
 
     for(int runs{0}; runs < 100; ++runs){
         // printfield();
-        incrementfield();
-        while (handleflashing()) {
-            // do nothing
-        }
-        flashes += resetflashed();
+        flashes += step();
     }
 
     std::cout << "Flashes: " << std::dec << flashes << '\n';
