@@ -26,6 +26,7 @@ int main(int argc, char** argv){
     input.close();
 
     for(int runs{0}; runs < 100; ++runs){
+        // printfield();
         incrementfield();
         while (handleflashing()) {
             // do nothing
@@ -33,7 +34,7 @@ int main(int argc, char** argv){
         flashes += resetflashed();
     }
 
-    std::cout << std::dec << flashes << '\n';
+    std::cout << "Flashes: " << std::dec << flashes << '\n';
 
     // printfield();
 }

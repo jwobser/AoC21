@@ -3,7 +3,6 @@
 
 int flashneighbors(int,int);
 
-
 static const int height{10};
 static const int width{10};
 static const int flashflag = INT_MAX & (1 << (8 * (sizeof(int))-2));
@@ -18,6 +17,7 @@ void printfield(){
             j = 0;
         }
     }
+    std::cout << '\n';
 }
 
 void incrementfield(){
@@ -47,11 +47,11 @@ int handleflashing(){
         if(j == width){
             ++i;
             j = 0;
-            if(i == width) break;
+            if(i == height) break;
         }
         a = field[i][j];
-        if (a < 9) continue;
-        if(a >= 9 && a < flashflag){
+        if (a < 10) continue;
+        if(a >= 10 && a < flashflag){
             ++count;
             field[i][j] |= flashflag;
             flashneighbors(i,j);
@@ -118,7 +118,7 @@ int flashneighbors(int i, int j){
             ++y;
         }
         field[y][x] += 1;
-        if (field[y][x] >= 9) ++count;
+        if (field[y][x] >= 10) ++count;
     }
 
     return count;
